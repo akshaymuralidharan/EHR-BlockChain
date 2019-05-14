@@ -55,11 +55,4 @@ router.get('/getHospital', function (req, res, next) {
 
 module.exports = router;
 
-result = []
-MyContract.methods.certcount(mobile).call().then((count)=>{
-  for(i=0;i<count;i++){
-    MyContract.methods.addcerti(mobile,i).call().then((res) => {
-      result.push(res);
-    })
-  }
-})
+

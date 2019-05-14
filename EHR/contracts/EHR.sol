@@ -1,4 +1,6 @@
 pragma solidity ^0.5.0;
+pragma experimental ABIEncoderV2;
+
 
 contract ehr{
 
@@ -120,5 +122,21 @@ contract ehr{
     struct medicalcertificates{
         string record;
     }
+
+    //uploading medical certificates and viewing the certificates
+
+    mapping(uint => mapping(uint => string)) public addcerti;
+    mapping(uint => uint) public certcount;
+ 
+
+ function setCertificate (uint _mobileno, string memory _certhash) public {
+     uint ccount = certcount[_mobileno] + 1;
+     addcerti[_mobileno][ccount] = _certhash;
+     setcount(_mobileno, ccount);
+     
+ }
+ function setcount(uint _mobileno, uint _count) public{
+     certcount[_mobileno] = _count;
+ }
 
 }

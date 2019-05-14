@@ -8,7 +8,7 @@ var logger = require('morgan');
 var Web3 = require('web3');
 var MyContractJSON = require(path.join(__dirname, 'build/contracts/ehr.json'));
 contractAddress = MyContractJSON.networks['4002'].address;
-coinbase = "0xc7Ab912A927d0C5eB1810d0fEDe302B7D22Ea51a";
+coinbase = "0x424AE0acc7a5D0D54259d0E50f30a9A0a39f3BF6";
 abi = MyContractJSON.abi;
 web3 = new Web3(Web3.providers.HttpProvider("http://localhost:8545"));
 
@@ -17,6 +17,7 @@ MyContract = new web3.eth.Contract(abi, contractAddress);
 var patientRouter = require('./routes/patient');
 var doctorRouter = require('./routes/doctor');
 var hospitalRouter = require('./routes/hospital');
+var certificateRouter = require('./routes/certificate');
 
 var indexRouter = require('./routes/index');
 // var usersRouter = require('./routes/users');
@@ -36,6 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/patient', patientRouter);
 app.use('/doctor', doctorRouter);
 app.use('/hospital', hospitalRouter);
+app.use('/certificate', certificateRouter);
 app.use('/', indexRouter);
 // app.use('/users', usersRouter);
 
