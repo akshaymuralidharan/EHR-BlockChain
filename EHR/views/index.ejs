@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Patient Registration</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+
+</head>
+
+<body>
+
+  <form action="patient" method="POST">
+    <input type="text" name="phone" placeholder="Phone No" required />
+    <br /><br />
+    <input type="text" name="name" placeholder="Name" required />
+    <br /><br />
+    <input type="date" name="dob" placeholder="DOB" required />
+    <br /><br />
+    <input type="text" name="addrs" placeholder="Address" required />
+    <br /><br />
+    <input type="email" name="email" placeholder="Email" required />
+    <br /><br />
+    
+    <select name="gender">
+      <option value="">Select a Gender</option>
+      <option value="0">Male</option>
+      <option value="1">Female</option>
+      <option value="2">Other</option>
+    </select>
+    <br /><br />
+    <input type="text" name="emergencycontact" placeholder="Emergency Contact" required />
+    <br /><br />
+    <input type="text" name="emergno" placeholder="Emergency Contact Number" required />
+    <br /><br />
+    <input type="submit" value="Submit" />
+  </form>
+  <br /><br /><br />
+
+  <form action="getStudent" method="GET">
+    <input type="text" name="roll" placeholder="Roll No" />
+    <input type="submit" value="Search" />
+  </form>
+  
+</body>
+
+</html>

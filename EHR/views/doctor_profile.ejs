@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Doctor Profile</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>Public Key</td>
+            <td><%= myData._publickey %></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td><%= myData._name %></td>
+        </tr>
+        <tr>
+            <td>DOB</td>
+            <td><%= myData._dob %></td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td><%= myData._addrs %></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><%= myData._email %></td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td><% if(myData._myGender==0) { %>
+                Male
+                <% } else if(myData._myGender==1) { %>
+                Female
+                <% } else { %>
+                Other
+                <% } %>
+            </td>
+        </tr>
+        <tr>
+            <td>Hospital Name</td>
+            <td><%= myData._hospitalname %></td>
+        </tr>
+        <tr>
+            <td>Qualifications</td>
+            <td><%= myData._qualifications %></td>
+        </tr>
+    </table>
+</body>
+
+</html>
+

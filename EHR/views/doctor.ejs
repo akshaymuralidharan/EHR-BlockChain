@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Doctor Registration</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+
+</head>
+
+<body>
+
+  <form action="doctor/setDoctor" method="POST">
+    <input type="text" name="id" placeholder="ID No" required />
+    <br /><br />
+    <input type="text" name="publickey" placeholder="Public Key" required />
+    <br /><br />
+    <input type="text" name="name" placeholder="Name" required />
+    <br /><br />
+    <input type="date" name="dob" placeholder="DOB" required />
+    <br /><br />
+    <input type="text" name="addrs" placeholder="Address" required />
+    <br /><br />
+    <input type="email" name="email" placeholder="Email" required />
+    <br /><br />
+    
+    <select name="gender">
+      <option value="">Select a Gender</option>
+      <option value="0">Male</option>
+      <option value="1">Female</option>
+      <option value="2">Other</option>
+    </select>
+    <br /><br />
+    <input type="text" name="hospitalname" placeholder="Hospital Name" required />
+    <br /><br />
+    <input type="text" name="qualifications" placeholder="Qualifications" required />
+    <br /><br />
+    <input type="submit" value="Submit" />
+  </form>
+  <br /><br /><br />
+
+  <form action="doctor/getDoctor" method="GET">
+    <input type="text" name="id" placeholder="ID No." />
+    <input type="submit" value="Search" />
+  </form>
+  
+</body>
+
+</html>
+
