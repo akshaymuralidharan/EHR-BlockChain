@@ -8,15 +8,16 @@
     <title>Certificates</title>
 </head>
 <body>
-    <form action="certificate/setCertificate" method="POST">
+    <form action="certificateupload/setCertificate" method="POST" enctype="multipart/form-data">
         <input type="text" name="phone" placeholder="Phone No" required />
         <br /><br />
-        <input type="text" name="certhash" placeholder="Certificate Hash" required />
+        <input type="file" name="certificate"/>
+        <!-- <input type="text" name="certhash" placeholder="Certificate Hash" required /> -->
         <br /><br />
         <input type="submit" value="Submit" />
       </form>
       <br><br>
-      <form action="certificate/getCertificate" method="GET">
+      <form action="certificateupload/getCertificate" method="GET">
         <input type="text" name="phone" placeholder="Phone No" />
         <input type="submit" value="Search" />
       </form>
