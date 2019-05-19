@@ -10,7 +10,7 @@ router.get("/", function(req, res, next) {
 });
 
 router.post("/setCertificate", function(req, res, next) {
-    console.log(req.body.phone);
+  console.log(req.body.phone);
   phoneNo = req.body.phone;
   certificateBytes = req.files.certificate.data;
   console.log("Phone NO :", phoneNo);
@@ -18,19 +18,23 @@ router.post("/setCertificate", function(req, res, next) {
 
   const ipfs = ipfsAPI("ipfs.infura.io", "5001", { protocol: "https" });
 
+
+
   ipfs.files.add(certificateBytes, function(err, file) {
     if (err) throw err;
     ipfsHash = file[0].hash;
     console.log("ipfsHash :", ipfsHash);
 
     MyContract.methods
-      .setCertificate(phoneNo, certificateBytes)
-      .send({ from: coinbase, gas: 6000000 });
-      console.log("certificate added")
-    //res.send("Certificate Added !");
-    res.redirect("/");
+      .setCertificate(phoneNo, ipfsHash)
+      .send({ from: coinbase, gas: 6000000 })
+      .then(result => {
+        console.log("certificate added");
+        console.log(result);
+        //res.send("Certificate Added !");
+        res.redirect("/");
+      });
   });
-
 
   router.get("/getCertificate", function(req, res, next) {
     data = req.query;
@@ -42,24 +46,20 @@ router.post("/setCertificate", function(req, res, next) {
       .then(async count => {
         for (i = 0; i <= count; i++) {
           //await new Promise(next => {
-            //console.log("ivide ethi");
-             await MyContract.methods
-              .addcerti(data.phone, i)
-              .call()
-              .then(res => {
-                console.log(res);
-                console.log(count);
-                result.push(res);
-              });
+          //console.log("ivide ethi");
+          await MyContract.methods
+            .addcerti(data.phone, i)
+            .call()
+            .then(res => {
+              console.log(res);
+              console.log(count);
+              result.push(res);
+            });
           //});
-          
         }
         console.log(result);
-        res.render("certificate_view", {result, count});
-      
+        res.render("certificate_view", { result, count });
       });
-  
-});
+  });
 });
 module.exports = router;
-
