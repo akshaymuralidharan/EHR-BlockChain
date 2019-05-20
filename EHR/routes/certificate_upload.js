@@ -61,5 +61,7 @@ router.post("/setCertificate", function(req, res, next) {
         res.render("certificate_view", { result, count });
       });
   });
+
+
 });
 module.exports = router;
