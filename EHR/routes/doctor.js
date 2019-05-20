@@ -5,7 +5,9 @@ var nodemailer = require('nodemailer');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('doctor', { title: 'Express' });
+    res.render('patient_search', { title: 'Express' });
+    //res.send("Doctor view !")
+
   });
 
 router.post('/setDoctor', function (req, res, next) {
