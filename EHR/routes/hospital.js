@@ -19,13 +19,13 @@ router.post('/setHospital', function (req, res, next) {
     var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-          user: 'kichu0000007@gmail.com',
-          pass: 'Kichu@54321'
+          user: 'youremail',
+          pass: 'password'
         }
       });
       
       var mailOptions = {
-        from: 'kichu0000007@gmail.com',
+        from: 'youremail',
         to: data.email,
         subject: 'Hospital Registration Details',
         text:  'Your hospital has been registered in our network. Our developer will be reaching you with in 7 working days for the further installation process of the software in your hospital.' +
